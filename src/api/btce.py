@@ -1,6 +1,6 @@
 import requests, logging
 
-class BadPairNameException(Exception):
+class BTCeBadPairNameException(Exception):
     pass
 
 class BTCeMarket(object):
@@ -19,7 +19,7 @@ class BTCeMarket(object):
         data = req.json()
 
         if 'error' in data.keys():
-            raise BadPairNameException('Unable to find pair {}'.format(pair))
+            raise BTCeBadPairNameException('Unable to find pair {} on BTCe'.format(pair))
 
         return data
 
