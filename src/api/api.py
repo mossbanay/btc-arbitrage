@@ -32,6 +32,6 @@ class MarketAPI(object):
                 bid = market.get_bid()
                 bids[market_name] = bid
             except MarketAccessFailure:
-                self.log.error('Unable to get bid from market {}'.format(market_name))
+                raise MarketAccessFailure('Unable to get bid from market {}'.format(market_name))
 
         return bids

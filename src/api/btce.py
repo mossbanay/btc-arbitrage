@@ -1,14 +1,34 @@
-## TODO implement btce
+import requests, logging
+
+class BadPairNameException(Exception):
+    pass
 
 class BTCeMarket(object):
     def __init__(self):
-        pass
+        self.fee = 0.002
+        self.api_url = 'https://btc-e.com/api/3/'
 
     def get_name(self):
         return 'BTCe'
 
-    def get_bid(self):
-        return 0.0
+    def get_ticker(self, pair):
+        req_url = self.api_url + 'ticker/{}'.format(pair)
 
-    def get_ask(self):
-        return 0.0
+        req = requests.get(req_url)
+
+        data = req.json()
+
+        if 'error' in data.keys():
+            raise BadPairNameException('Unable to find pair {}'.format(pair))
+
+        return data
+
+    def get_bid(self, pair):
+        ticker = self.get_ticker(pair)
+
+        return ticker[pair]['buy']
+
+    def get_ask(self, pair):
+        ticker = self.get_ticker(pair)
+
+        return ticker[pair]['sell']
