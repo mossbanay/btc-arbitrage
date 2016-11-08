@@ -23,13 +23,14 @@ class MarketAPI(object):
         except MarketAccessFailure:
             self.log.error('Unable to connect to Kraken')
 
-    def get_bids(self):
+    def get_bids(self, pair):
         bids = {}
 
         for market in self.markets_loaded:
             market_name = market.get_name()
             try:
-                bid = market.get_bid()
+                pair_symbol = pair.get_pair_by_market(market)
+                bid = market.get_bid(pair_symbol)
                 bids[market_name] = bid
             except MarketAccessFailure:
                 raise MarketAccessFailure('Unable to get bid from market {}'.format(market_name))
