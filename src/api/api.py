@@ -36,3 +36,17 @@ class MarketAPI(object):
                 raise MarketAccessFailure('Unable to get bid from market {}'.format(market_name))
 
         return bids
+
+    def get_asks(self, pair):
+        asks = {}
+
+        for market in self.markets_loaded:
+            market_name = market.get_name()
+            try:
+                pair_symbol = pair.get_pair_by_market(market)
+                ask = market.get_ask(pair_symbol)
+                asks[market_name] = ask
+            except MarketAccessFailure:
+                raise MarketAccessFailure('Unable to get ask from market {}'.format(market_name))
+
+        return asks
