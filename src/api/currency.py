@@ -2,6 +2,9 @@ class Currency(object):
     def __init__(self, symbol):
         self.symbol = symbol
 
+    def get_symbol(self):
+        return self.symbol
+
     def get_currency_by_market(self, market):
         if market.get_name() == 'BTCe':
             return {'btc':'btc',
@@ -46,6 +49,9 @@ class Pair(object):
 
         self.base = base_currency
         self.transaction = transaction_currency
+
+    def get_symbol(self):
+        return self.base.get_symbol() + self.transaction.get_symbol()
 
     def get_pair_by_market(self, market):
         base = self.base.get_currency_by_market(market)
