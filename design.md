@@ -1,6 +1,6 @@
 ### Target markets
 
-☐ Kraken
+☑ Kraken
 
 ☐ Bitfinex
 
@@ -8,7 +8,7 @@
 
 ☐ C-Cex
 
-☐ BTCe
+☑ BTCe
 
 ☐ HitBTC
 
