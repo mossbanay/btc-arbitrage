@@ -1,0 +1,2 @@
+- Cache the tickers inside the objects and use them if they're recent enough
+- Ensure that APIs are not getting hammered, put a delay into place
