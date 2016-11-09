@@ -22,6 +22,21 @@ class Currency(object):
                     'cad':'ZCAD',
                     'usd':'ZUSD'}[self.symbol]
 
+        elif market.get_name() == 'Poloniex':
+            return {'btc':'BTC',
+                    'dao':'DAO',
+                    'ltc':'LTC',
+                    'eth':'ETH',
+                    'etc':'ETC',
+                    'xmr':'XMR',
+                    'zec':'ZEC',
+                    'fct':'FCT',
+                    'xrp':'XRP',
+                    'rep':'REP',
+                    'usd':'USDT'}[self.symbol]
+
+
+
 class Pair(object):
     def __init__(self, base_currency, transaction_currency):
         if not isinstance(base_currency, Currency):
@@ -41,3 +56,6 @@ class Pair(object):
 
         elif market.get_name() == 'Kraken':
             return '{}{}'.format(base, transaction)
+
+        elif market.get_name() == 'Poloniex':
+            return '{}_{}'.format(transaction, base)

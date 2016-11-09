@@ -4,7 +4,7 @@
 
 ☐ Bitfinex
 
-☐ Poloniex
+☑ Poloniex
 
 ☐ C-Cex
 
