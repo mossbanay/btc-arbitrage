@@ -26,9 +26,9 @@ class PoloniexMarket(object):
     def get_bid(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker['lowestAsk']
+        return float(ticker['lowestAsk'])
 
     def get_ask(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker['highestBid']
+        return float(ticker['highestBid'])

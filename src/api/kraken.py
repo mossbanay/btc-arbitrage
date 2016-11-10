@@ -31,9 +31,9 @@ class KrakenMarket(object):
     def get_bid(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker['result'][pair]['a'][0]
+        return float(ticker['result'][pair]['a'][0])
 
     def get_ask(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker['result'][pair]['b'][0]
+        return float(ticker['result'][pair]['b'][0])

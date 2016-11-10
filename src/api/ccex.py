@@ -26,9 +26,9 @@ class CCexMarket(object):
     def get_bid(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker['sell']
+        return float(ticker['sell'])
 
     def get_ask(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker['buy']
+        return float(ticker['buy'])

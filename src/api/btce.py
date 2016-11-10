@@ -26,9 +26,9 @@ class BTCeMarket(object):
     def get_bid(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker[pair]['buy']
+        return float(ticker[pair]['buy'])
 
     def get_ask(self, pair):
         ticker = self.get_ticker(pair)
 
-        return ticker[pair]['sell']
+        return float(ticker[pair]['sell'])
