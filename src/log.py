@@ -8,10 +8,10 @@ PAIRS = [Pair(Currency('btc'), Currency('usd')),
 
 def main():
 
-    cur_dir = os.path.dirname(__file__)
+    cur_dir = os.path.dirname(os.path.realpath(__file__))
 
     if not os.path.exists(os.path.join(cur_dir, 'logs/')):
-        os.makedirs('logs/')
+        os.makedirs(os.path.join(cur_dir, 'logs/'))
 
     api = MarketAPI()
 
