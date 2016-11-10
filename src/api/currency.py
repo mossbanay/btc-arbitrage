@@ -36,7 +36,16 @@ class Currency(object):
                     'fct':'FCT',
                     'xrp':'XRP',
                     'rep':'REP',
+                    'doge':'DOGE',
                     'usd':'USDT'}[self.symbol]
+
+        elif market.get_name() == 'C-Cex':
+            return {'btc':'btc',
+                    'ltc':'ltc',
+                    'eth':'eth',
+                    'etc':'etc',
+                    'doge':'doge',
+                    'usd':'usd'}[self.symbol]
 
 
 
@@ -65,3 +74,6 @@ class Pair(object):
 
         elif market.get_name() == 'Poloniex':
             return '{}_{}'.format(transaction, base)
+
+        elif market.get_name() == 'C-Cex':
+            return '{}-{}'.format(base, transaction)

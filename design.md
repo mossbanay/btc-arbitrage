@@ -6,7 +6,7 @@
 
 ☑ Poloniex
 
-☐ C-Cex
+☑ C-Cex
 
 ☑ BTCe
 

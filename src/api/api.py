@@ -1,6 +1,7 @@
 from api.btce import BTCeMarket
 from api.kraken import KrakenMarket
 from api.poloniex import PoloniexMarket
+from api.ccex import CCexMarket
 
 import logging
 
@@ -29,6 +30,13 @@ class MarketAPI(object):
             self.markets_loaded.append(polo)
         except MarketAccessFailure:
             self.log.error('Unable to connect to Poloniex')
+
+        try:
+            ccex = CCexMarket()
+            self.markets_loaded.append(ccex)
+        except MarketAccessFailure:
+            self.log.error('Unable to connect to C-Cex')
+
 
     def get_bids(self, pair):
         bids = {}
