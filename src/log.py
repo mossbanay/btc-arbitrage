@@ -4,6 +4,7 @@ import time, os.path
 
 
 PAIRS = [Pair(Currency('btc'), Currency('usd')),
+         Pair(Currency('eth'), Currency('btc')),
          Pair(Currency('ltc'), Currency('btc'))]
 
 def main():
