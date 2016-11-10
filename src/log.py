@@ -8,7 +8,9 @@ PAIRS = [Pair(Currency('btc'), Currency('usd')),
 
 def main():
 
-    if not os.path.exists('logs/'):
+    cur_dir = os.path.dirname(__file__)
+
+    if not os.path.exists(os.path.join(cur_dir, 'logs/')):
         os.makedirs('logs/')
 
     api = MarketAPI()
@@ -18,7 +20,7 @@ def main():
         bids = api.get_bids(pair)
         asks = api.get_asks(pair)
 
-        logfile_name = 'logs/' + pair.get_symbol() + '.csv'
+        logfile_name = os.path.join(cur_dir, 'logs/' + pair.get_symbol() + '.csv')
 
         if not os.path.isfile(logfile_name):
             with open(logfile_name, 'w'):
