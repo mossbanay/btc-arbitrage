@@ -14,6 +14,8 @@
 
 ☐ Bittrex
 
+☐ Cex.io
+
 ### Target pairs
 
 ☐ LTC/BTC
